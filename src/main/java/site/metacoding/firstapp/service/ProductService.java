@@ -22,4 +22,11 @@ public class ProductService {
 	public List<Product> List(ProductListReqDto productListReqDto){
 		return productDao.findAll();
 	}
+	
+	public Product Detail(Integer productId) {
+		Product productPs = productDao.findById(productId);
+		return productPs;
+	}
+	
+
 }

@@ -3,6 +3,7 @@ package site.metacoding.firstapp.domain;
 import java.sql.Timestamp;
 
 import lombok.Getter;
+import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
 
 @Getter
 public class Product {
@@ -28,10 +29,9 @@ public class Product {
     }
     
     // 상품 수정
-    public void update(Product product) {
-        this.productName = product.getProductName();
-        this.productPrice = product.getProductPrice();
-        this.productQty = product.getProductQty();
+    public void update(ProductUpdateReqDto productUpdateReqDto) {
+        this.productPrice = productUpdateReqDto.getProductPrice();
+        this.productQty = productUpdateReqDto.getProductQty();
     }
 
 }

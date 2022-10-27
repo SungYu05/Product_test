@@ -12,4 +12,6 @@ public interface ProductDao {
     public int update(Product product);
 
     public int deleteById(Integer productId);
+    
+    public int findByProductName(String ProductName);
 }

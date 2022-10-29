@@ -3,6 +3,7 @@ package site.metacoding.firstapp.web;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,12 +33,14 @@ public class ProductController {
 	@PostMapping("/product/add")
 	public String add(ProductSaveReqDto productSaveReqDto) {
 		productService.productSave(productSaveReqDto);
-		return "product/saveForm";
+		return "redirect:/";
 	}
 	
-	@GetMapping("/product")
-	public List<Product> product(ProductListReqDto productListReqDto){
-		return productService.list(productListReqDto);
+	@GetMapping({"/product", "/"})
+	public String product(Model model,ProductListReqDto productListReqDto){
+		List<Product> productList = productService.list(productListReqDto);
+		model.addAttribute("productList", productList);
+		return "product/list";
 	}
 	
 	@GetMapping("/product/{productId}")

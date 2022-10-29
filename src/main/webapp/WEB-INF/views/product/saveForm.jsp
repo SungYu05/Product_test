@@ -18,7 +18,4 @@
 		<button type="submit" class="btn btn-primary">상품등록하기</button>
 	</form>
 </div>
-
-<script>
-</script>
 <%@ include file="../layout/footer.jsp"%>

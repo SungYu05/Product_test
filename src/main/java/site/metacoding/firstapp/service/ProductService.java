@@ -16,25 +16,25 @@ import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
 public class ProductService {
 	private final ProductDao productDao;
 	
-	public void ProductSave(ProductSaveReqDto saveReqDto) {
-		productDao.insert(saveReqDto.toEntity());
+	public void productSave(ProductSaveReqDto saveReqDto) {
+		productDao.insert(saveReqDto.toEntity());	
 	}
 	
-	public List<Product> List(ProductListReqDto productListReqDto){
+	public List<Product> list(ProductListReqDto productListReqDto){
 		return productDao.findAll();
 	}
 	
-	public Product Detail(Integer productId) {
+	public Product detail(Integer productId) {
 		Product productPs = productDao.findById(productId);
 		return productPs;
 	}
 	
-	public void Delete(Integer productId) {
+	public void delete(Integer productId) {
 		Product productPs = productDao.findById(productId);
 		productDao.deleteById(productId);
 	}
 	
-	public Product Update(Integer productId, ProductUpdateReqDto productUpdateReqDto) {
+	public Product update(Integer productId, ProductUpdateReqDto productUpdateReqDto) {
 		// 영속화
 		Product productPs = productDao.findById(productId);
 		// 객체 변경
@@ -43,7 +43,6 @@ public class ProductService {
 		productDao.update(productPs);
 		return productPs;
 	}
-	
 	
 
 }

@@ -27,5 +27,9 @@
   <delete id="deleteById">
     DELETE FROM product WHERE product_id = #{productId}
 	</delete>
+	
+	<select id="findByProductName" resultType="site.metacoding.firstapp.domain.Product">
+		SELECT * FROM product WHERE product_name = #{productName}
+	</select>
 
 </mapper>

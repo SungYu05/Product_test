@@ -24,29 +24,29 @@ public class ProductController {
 	
 	@GetMapping("/product")
 	public List<Product> product(ProductListReqDto productListReqDto){
-		return productService.List(productListReqDto);
+		return productService.list(productListReqDto);
 	}
 
 	@PostMapping("/product/add")
 	public String add(@RequestBody ProductSaveReqDto productSaveReqDto) {
-		productService.ProductSave(productSaveReqDto);
+		productService.productSave(productSaveReqDto);
 		return "ok";
 	}
 	
 	@GetMapping("/product/{productId}")
-	public Product DetailId(@PathVariable Integer productId) {
-		return productService.Detail(productId);
+	public Product detailId(@PathVariable Integer productId) {
+		return productService.detail(productId);
 	}
 	
 	@DeleteMapping("/product/{productId}/delete")
-	public String DeleteId(@PathVariable Integer productId) {
-		productService.Delete(productId);
+	public String deleteId(@PathVariable Integer productId) {
+		productService.delete(productId);
 		return "ok";
 	}
 	
 	@PutMapping("/product/{productId}/edit") 
 		public String edit(@PathVariable Integer productId, @RequestBody ProductUpdateReqDto productUpdateReqDto) {
-			productService.Update(productId, productUpdateReqDto);
+			productService.update(productId, productUpdateReqDto);
 			return "ok";
 		}
 	

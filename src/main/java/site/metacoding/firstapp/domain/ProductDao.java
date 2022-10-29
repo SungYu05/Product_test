@@ -13,5 +13,6 @@ public interface ProductDao {
 
     public int deleteById(Integer productId);
     
-    public int findByProductName(String ProductName);
+    // 중복 상품명
+    public Product findByProductName(String productName);
 }

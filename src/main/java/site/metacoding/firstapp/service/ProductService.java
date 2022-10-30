@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
-import site.metacoding.firstapp.web.dto.ProductListReqDto;
-import site.metacoding.firstapp.web.dto.ProductSaveReqDto;
-import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductListReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductSaveReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductUpdateReqDto;
 
 @RequiredArgsConstructor
 @Service

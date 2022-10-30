@@ -15,9 +15,9 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.service.ProductService;
 import site.metacoding.firstapp.web.dto.CMRespDto;
-import site.metacoding.firstapp.web.dto.ProductListReqDto;
-import site.metacoding.firstapp.web.dto.ProductSaveReqDto;
-import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductListReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductSaveReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductUpdateReqDto;
 
 @RequiredArgsConstructor
 @Controller

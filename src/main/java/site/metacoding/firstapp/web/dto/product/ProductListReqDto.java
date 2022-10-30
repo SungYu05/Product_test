@@ -1,4 +1,4 @@
-package site.metacoding.firstapp.web.dto;
+package site.metacoding.firstapp.web.dto.product;
 
 
 import lombok.Getter;

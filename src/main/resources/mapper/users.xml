@@ -12,9 +12,9 @@
     SELECT * FROM users ORDER BY users_id DESC
 	</select>
 
-  <insert id="insert" useGeneratedKeys="true" keyProperty="userstId">
-    INSERT INTO users(users_name, users_password, users_email, product_id, created_at) 
-    VALUES(#{usersName}, #{usersPassword}, #{usersEmail}, #{productId}, NOW())
+  <insert id="insert">
+    INSERT INTO users(users_name, users_password, users_email, created_at) 
+    VALUES(#{usersName}, #{usersPassword}, #{usersEmail}, NOW())
 	</insert>
 
   <update id="update">

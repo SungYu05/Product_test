@@ -3,7 +3,7 @@ package site.metacoding.firstapp.domain;
 import java.sql.Timestamp;
 
 import lombok.Getter;
-import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
+import site.metacoding.firstapp.web.dto.product.ProductUpdateReqDto;
 
 @Getter
 public class Product {

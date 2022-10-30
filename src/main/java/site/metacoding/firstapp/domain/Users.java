@@ -10,6 +10,13 @@ public class Users {
 	private String usersName;
 	private String usersPassword;
 	private String usersEmail;
-	private Integer productId;
 	private Timestamp createdAt;
+	
+	public Users(String usersName, String usersPassword, String usersEmail) {
+		this.usersName = usersName;
+		this.usersPassword = usersPassword;
+		this.usersEmail = usersEmail;
+	}
+	
+	
 }

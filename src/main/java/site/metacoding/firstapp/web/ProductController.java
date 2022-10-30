@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.service.ProductService;
+import site.metacoding.firstapp.web.dto.CMRespDto;
 import site.metacoding.firstapp.web.dto.ProductListReqDto;
 import site.metacoding.firstapp.web.dto.ProductSaveReqDto;
 import site.metacoding.firstapp.web.dto.ProductUpdateReqDto;
@@ -28,9 +31,9 @@ public class ProductController {
 	}
 	
 	@PostMapping("/product/add")
-	public String add(ProductSaveReqDto productSaveReqDto) {
+	public @ResponseBody CMRespDto<?> add(@RequestBody ProductSaveReqDto productSaveReqDto) {
 		productService.productSave(productSaveReqDto);
-		return "redirect:/";
+		return new CMRespDto<>(1, "성공", null);
 	}
 	
 	// 상품목록보기
@@ -70,6 +73,13 @@ public class ProductController {
 	public String deleteId(@PathVariable Integer productId) {
 		productService.delete(productId);
 		return "redirect:/";
+	}
+	
+	// 중복된 상품명
+	@GetMapping("/product/productNameSameCheck")
+	public @ResponseBody CMRespDto<Boolean> productNameSameCheck(String productName){
+		boolean isSame = productService.checkProductName(productName);
+		return new CMRespDto<>(1, "성공", isSame);
 	}
 	
 }

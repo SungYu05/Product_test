@@ -66,10 +66,10 @@ public class ProductController {
 		}
 	
 	// 상품삭제하기
-	@DeleteMapping("/product/{productId}/delete")
+	@PostMapping("/product/{productId}/delete")
 	public String deleteId(@PathVariable Integer productId) {
 		productService.delete(productId);
-		return "ok";
+		return "redirect:/";
 	}
 	
 }

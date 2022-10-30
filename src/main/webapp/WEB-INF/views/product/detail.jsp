@@ -2,8 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../layout/header.jsp"%>
 <div class="container">
-	<br />
-	<input id="productId" type="hidden" value="${product.productId}" />
+
+	<br /> <input id="productId" type="hidden"
+		value="${product.productId}" />
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -20,7 +21,9 @@
 			</tr>
 		</tbody>
 	</table>
-		<a href="/product/${productId}/edit" class="btn btn-success">상품수정하기</a>
+	<a href="/product/${productId}/edit" class="btn btn-success">상품수정하기</a>
+	<form action="/product/${productId}/delete" method="POST">
 		<button type="submit" class="btn btn-danger">상품삭제하기</button>
+	</form>
 </div>
 <%@ include file="../layout/footer.jsp"%>

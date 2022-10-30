@@ -6,18 +6,18 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>상품명</th>
-					<th>상품수량</th>
-					<th>상품재고</th>
+					<th>회원명</th>
+					<th>비밀번호</th>
+					<th>이메일</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="product" items="${productList}">
+				<c:forEach var="users" items="${usersList}">
 					<tr>
-						<td>${product.productName}</td>
-						<td>${product.productPrice}</td>
-						<td>${product.productQty}</td>
-						<td><a href="/product/${product.productId}" class="btn btn-success">상세보기</a></td>
+						<td>${users.usersName}</td>
+						<td>${users.usersPassword}</td>
+						<td>${users.usersEmail}</td>
+						<td><a href="/users/${users.usersId}" class="btn btn-success">상세보기</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -27,5 +27,8 @@
   <delete id="deleteById">
     DELETE FROM users WHERE users_id = #{usersId}
 	</delete>
-
+	
+	<select id="findByUsersName" resultType="site.metacoding.firstapp.domain.Users">
+	SELECT * FROM users WHERE users_name = #{usersName}
+	</select>
 </mapper>

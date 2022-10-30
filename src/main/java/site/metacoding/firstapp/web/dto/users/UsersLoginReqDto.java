@@ -6,13 +6,7 @@ import site.metacoding.firstapp.domain.Users;
 
 @Getter
 @Setter
-public class UsersSaveReqDto {
+public class UsersLoginReqDto {
 	private String usersName;
 	private String usersPassword;
-	private String usersEmail;
-	
-	public Users toEntity() {
-		Users users = new Users(usersName, usersPassword, usersEmail);
-		return users;
-	}
 }

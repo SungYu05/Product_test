@@ -8,7 +8,8 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Users;
 import site.metacoding.firstapp.domain.UsersDao;
 import site.metacoding.firstapp.web.dto.users.UsersListReqDto;
-import site.metacoding.firstapp.web.dto.users.UsersSaveReqDto;
+import site.metacoding.firstapp.web.dto.users.UsersLoginReqDto;
+import site.metacoding.firstapp.web.dto.users.UsersJoinReqDto;
 import site.metacoding.firstapp.web.dto.users.UsersUpdateReqDto;
 
 @RequiredArgsConstructor
@@ -17,8 +18,23 @@ public class UsersService {
 	private final UsersDao usersDao;
 	
 	// 회원가입
-	public void inset(UsersSaveReqDto usersSaveReqDto) {
+	public void inset(UsersJoinReqDto usersSaveReqDto) {
 		usersDao.insert(usersSaveReqDto.toEntity());
+	}
+	
+	// 로그인
+	public Users login(UsersLoginReqDto usersLoginReqDto) {
+		Users usersPS = usersDao.findByUsersName(usersLoginReqDto.getUsersName());
+		if (usersPS == null) {
+			return null;
+		}else {
+			
+		}
+		if(usersPS.getUsersPassword().equals(usersLoginReqDto.getUsersPassword())) {
+			return usersPS;
+		}else {
+			return null;
+		}
 	}
 	
 	// 회원 목록 보기

@@ -2,6 +2,8 @@ package site.metacoding.firstapp.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,24 +14,42 @@ import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.Users;
 import site.metacoding.firstapp.service.UsersService;
 import site.metacoding.firstapp.web.dto.users.UsersListReqDto;
-import site.metacoding.firstapp.web.dto.users.UsersSaveReqDto;
+import site.metacoding.firstapp.web.dto.users.UsersLoginReqDto;
+import site.metacoding.firstapp.web.dto.users.UsersJoinReqDto;
 import site.metacoding.firstapp.web.dto.users.UsersUpdateReqDto;
 
 @RequiredArgsConstructor
 @Controller
 public class UsersController {
 	private final UsersService usersService;
+	private final HttpSession session;
 	
 	// 회원가입
-	@GetMapping("/users/add")
+	@GetMapping("/users/join")
 	public String saveForm() {
-		return "users/saveForm";
+		return "users/joinForm";
 	}
 	
-	@PostMapping("/users/add")
-	public String add(UsersSaveReqDto usersSaveReqDto) {
+	@PostMapping("/users/join")
+	public String add(UsersJoinReqDto usersSaveReqDto) {
 		usersService.inset(usersSaveReqDto);
 		return "redirect:/users";
+	}
+	
+	// 로그인
+	@GetMapping("/users/login")
+	public String loginForm() {
+		return "users/loginForm";
+	}
+	
+	@PostMapping("/users/login")
+	public String login(UsersLoginReqDto usersLoginReqDto) {
+		Users principal = usersService.login(usersLoginReqDto);
+		if(principal == null) {
+			return "redirect:/users/login";
+		}else {
+			return "redirect:/users";
+		}
 	}
 	
 	// 회원 목록보기

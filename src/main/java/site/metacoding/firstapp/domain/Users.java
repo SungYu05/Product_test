@@ -12,17 +12,16 @@ public class Users {
 	private String usersPassword;
 	private String usersEmail;
 	private Timestamp createdAt;
-	
+
 	public Users(String usersName, String usersPassword, String usersEmail) {
 		this.usersName = usersName;
 		this.usersPassword = usersPassword;
 		this.usersEmail = usersEmail;
 	}
-	
+
 	public void update(UsersUpdateReqDto usersUpdateReqDto) {
 		this.usersPassword = usersUpdateReqDto.getUsersPassword();
 		this.usersEmail = usersUpdateReqDto.getUsersEmail();
 	}
-	
-	
+
 }

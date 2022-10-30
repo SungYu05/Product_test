@@ -13,6 +13,7 @@ import site.metacoding.firstapp.domain.Users;
 import site.metacoding.firstapp.service.UsersService;
 import site.metacoding.firstapp.web.dto.users.UsersListReqDto;
 import site.metacoding.firstapp.web.dto.users.UsersSaveReqDto;
+import site.metacoding.firstapp.web.dto.users.UsersUpdateReqDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -45,5 +46,20 @@ public class UsersController {
 		Users usersPS = usersService.findById(usersId);
 		model.addAttribute("usersPS", usersPS);
 		return "users/detail";
+	}
+	
+	// 회원 수정하기
+	@GetMapping("/users/{usersId}/edit")
+	public String editForm(Model model, @PathVariable Integer usersId, UsersUpdateReqDto usersUpdateReqDto) {
+		Users usersPS = usersService.findById(usersId);
+		model.addAttribute("edit", usersPS);
+		return "users/edit";
+	}
+	
+	@PostMapping("/users/{usersId}/edit")
+	public String edit(Model model, @PathVariable Integer usersId, UsersUpdateReqDto usersUpdateReqDto) {
+		Users usersPS = usersService.update(usersId, usersUpdateReqDto);
+		model.addAttribute("edit", usersPS);
+		return "redirect:/users";
 	}
 }

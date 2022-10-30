@@ -8,6 +8,7 @@ import site.metacoding.firstapp.domain.Product;
 @Getter
 @Setter
 public class ProductUpdateReqDto {
+	private String productName;
 	private Integer productPrice;
     private Integer productQty;
     

@@ -41,6 +41,8 @@ public class ProductService {
 		productPs.update(productUpdateReqDto);
 		// 디비 변경
 		productDao.update(productPs);
+
+
 		return productPs;
 	}
 	

@@ -13,7 +13,6 @@ public class Product {
     private Integer productQty;
     private Timestamp createdAt;
     
-    // 상품삭제..?
     public void setProductId(Integer productId) {
         this.productId = productId;
     }
@@ -30,6 +29,7 @@ public class Product {
     
     // 상품 수정
     public void update(ProductUpdateReqDto productUpdateReqDto) {
+    	this.productName = productUpdateReqDto.getProductName();
         this.productPrice = productUpdateReqDto.getProductPrice();
         this.productQty = productUpdateReqDto.getProductQty();
     }
